@@ -44,8 +44,10 @@ async function handleUrlShorternerGet(req,res){
 
     await newItem.save();
 
+    const urls = await Url.find();
+
     //res.status(200).json({customid: `Your customId ${customId}`});
-    res.status(200).render('home',{customId});
+    res.status(200).render('home',{customId,urls});
 
     }
     catch(err){
